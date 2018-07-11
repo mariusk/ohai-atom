@@ -15,10 +15,18 @@ configSet("core", {
 });
 
 configSet("editor", {
-  fontFamily: "PragmataPro",
-  lineHeight: 1.3,
+  fontFamily: "Inconsolata",
+  lineHeight: 1,
   softWrap: true,
   tabType: "soft"
+});
+
+configSet("*", {
+  "autocomplete-plus": {
+    suppressActivationForEditorClasses: [
+      "narrow"
+    ]
+  }
 });
 
 //
@@ -147,7 +155,7 @@ usePackage("advanced-open-file", {
       up: "advanced-open-file:move-cursor-up",
       down: "advanced-open-file:move-cursor-down",
       left: "advanced-open-file:delete-path-component",
-      right: "advanced-open-file:autocomplete",
+      right: "advanced-open-file:>autocomplete",
       tab: "advanced-open-file:autocomplete",
       "ctrl-i": "advanced-open-file:autocomplete",
       "ctrl-p": "advanced-open-file:move-cursor-up",
@@ -381,7 +389,7 @@ usePackage("atom-ide-ui", {
       formatOnSave: true
     },
     "atom-ide-terminal": {
-      fontFamily: "PragmataPro"
+      fontFamily: "Inconsolata"
     }
   }
 });
@@ -457,3 +465,12 @@ usePackage("ide-purescript", {
 usePackage("linter-jsonlint");
 usePackage("language-papyrus");
 usePackage("language-stellaris");
+
+usePackage("narrow", {
+  keymap: {
+    "atom-workspace atom-text-editor": {
+      "cmd-g .": "search",
+      "ctrl-g": "narrow:close"
+    }
+  }
+});
