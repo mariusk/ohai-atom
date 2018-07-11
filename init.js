@@ -244,6 +244,14 @@ usePackage("fuzzy-finder", {
   }
 });
 
+usePackage("recent-files-fuzzy-finder", {
+  keymap: {
+    "atom-workspace": {
+      "cmd-b": "recent-files-fuzzy-finder:toggle-finder"
+    }
+  }
+});
+
 usePackage("magic-reflow", {
   keymap: {
     "atom-workspace atom-text-editor.emacs-plus:not([mini])": {
@@ -327,7 +335,7 @@ usePackage("atom-beautify", {
 
 usePackage("build", {
   config: {
-    panelVisibility: "Keep Visible",
+    panelVisibility: "Show on Error",
     refreshOnShowTargetList: true,
     buildOnSave: false,
     saveOnBuild: true,
@@ -359,40 +367,40 @@ usePackage("build", {
 //
 // Atom IDE
 
-usePackage("atom-ide-ui", {
-  keymap: {
-    "atom-workspace atom-text-editor.enable-atom-ide-find-references": {
-      "ctrl-c ctrl-f": "code-format:format-code"
-    },
-    "atom-workspace atom-text-editor.emacs-plus:not([mini])": {
-      "alt-n": "diagnostics:go-to-next-diagnostic",
-      "alt-p": "diagnostics:go-to-previous-diagnostic",
-      "ctrl-c s": "diagnostics:show-actions-at-position",
-      "ctrl-c alt-s": "diagnostics:fix-all-in-current-file",
-      "ctrl-c r": "find-references:activate",
-      "ctrl-t": "datatip:toggle",
-      "alt-.": "hyperclick:confirm-cursor"
-    },
-    "atom-workspace": {
-      "ctrl-c t": "outline-view:toggle",
-      "ctrl-c l": "diagnostics:toggle-table"
-    }
-  },
-  config: {
-    "atom-ide-find-references": {
-      defaultLocationForPane: "right"
-    },
-    "atom-ide-diagnostics-ui": {
-      autoVisibility: true
-    },
-    "atom-ide-code-format": {
-      formatOnSave: true
-    },
-    "atom-ide-terminal": {
-      fontFamily: "Inconsolata"
-    }
-  }
-});
+// usePackage("atom-ide-ui", {
+//   keymap: {
+//     "atom-workspace atom-text-editor.enable-atom-ide-find-references": {
+//       "ctrl-c ctrl-f": "code-format:format-code"
+//     },
+//     "atom-workspace atom-text-editor.emacs-plus:not([mini])": {
+//       "alt-n": "diagnostics:go-to-next-diagnostic",
+//       "alt-p": "diagnostics:go-to-previous-diagnostic",
+//       "ctrl-c s": "diagnostics:show-actions-at-position",
+//       "ctrl-c alt-s": "diagnostics:fix-all-in-current-file",
+//       "ctrl-c r": "find-references:activate",
+//       "ctrl-t": "datatip:toggle",
+//       "alt-.": "hyperclick:confirm-cursor"
+//     },
+//     "atom-workspace": {
+//       "ctrl-c t": "outline-view:toggle",
+//       "ctrl-c l": "diagnostics:toggle-table"
+//     }
+//   },
+//   config: {
+//     "atom-ide-find-references": {
+//       defaultLocationForPane: "right"
+//     },
+//     "atom-ide-diagnostics-ui": {
+//       autoVisibility: false
+//     },
+//     "atom-ide-code-format": {
+//       formatOnSave: true
+//     },
+//     "atom-ide-terminal": {
+//       fontFamily: "Inconsolata"
+//     }
+//   }
+// });
 
 usePackage("ide-typescript", {
   config: {
@@ -412,15 +420,15 @@ configSet(
   {scopeSelector: ".rust.source"}
 );
 
-usePackage("ide-rust", {
-  config: {
-    rlsToolchain: "nightly",
-    rlsDefaultConfig: {
-      allTargets: "On",
-      clippyPreference: "On"
-    }
-  }
-});
+// usePackage("ide-rust", {
+//   config: {
+//     rlsToolchain: "nightly",
+//     rlsDefaultConfig: {
+//       allTargets: "On",
+//       clippyPreference: "On"
+//     }
+//   }
+// });
 
 usePackage("build-cargo");
 
@@ -469,8 +477,7 @@ usePackage("language-stellaris");
 usePackage("narrow", {
   keymap: {
     "atom-workspace atom-text-editor": {
-      "cmd-g .": "search",
-      "ctrl-g": "narrow:close"
+      "cmd-g .": "search"
     }
   }
 });
